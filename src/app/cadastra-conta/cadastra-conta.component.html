@@ -1,0 +1,39 @@
+<div class="form-color">
+    <div class="row" *ngIf="erroNoCadastro.length > 0">
+        <div class="col-sm-12" *ngFor="let erros of erroNoCadastro">
+            <div class="alert alert-danger" role="alert"> {{ erros }} </div>
+        </div>
+    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nome" minlength="5" name="nome" ngModel
+                        placeholder="Nome *" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" ngModel name="email" placeholder="E-mail *"
+                        required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="cpf" name="cpf" ngModel placeholder="CPF *" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="dataNascimento" id="dataNascimento"
+                        name="dataNascimento" ngModel minlength="10" maxlength="10" placeholder="DD/MM/AAAA" required>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" [disabled]="!form.valid">Cadastrar</button>
+    </form>
+</div>
